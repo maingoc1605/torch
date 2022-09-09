@@ -9,7 +9,7 @@ class ResBlock(nn.Module):
     def __init__(self,input,out,downsample):
         super(ResBlock, self).__init__()
         if (downsample==True):
-            self.layer1= nn.Sequential(
+            self.layer1 = nn.Sequential(
                 nn.Conv2d(input, out, kernel_size=3, padding=1, stride=2),
                 nn.BatchNorm2d(out),
                 nn.ReLU()
@@ -26,7 +26,7 @@ class ResBlock(nn.Module):
             )
             self.skipconection = nn.Sequential()
 
-        self.layer2=nn.Sequential(
+        self.layer2 = nn.Sequential(
             nn.Conv2d(out, out, kernel_size=3, stride=1, padding=1),
             nn.BatchNorm2d(out),
             nn.ReLU()
