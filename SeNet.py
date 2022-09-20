@@ -6,9 +6,9 @@ class SeNet(nn.Module):
         super(SeNet, self).__init__()
         self.squeeze = nn.AdaptiveAvgPool2d(1)
         self.excitation = nn.Sequential(
-            nn.Linear(in_features=channel, out_features=channel/reduction),
+            nn.Linear(in_features=channel, out_features=channel//reduction),
             nn.ReLU(),
-            nn.Linear(in_features=channel/reduction, out_features=channel),
+            nn.Linear(in_features=channel//reduction, out_features=channel),
             nn.Sigmoid()
         )
 
